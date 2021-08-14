@@ -18,9 +18,9 @@ while True:
     while True:
         try:
             data = tcpCliSock.recv(BUFSIZ)
-            print("recive:", data.decode())
+            print("recived:", data)
             tcpCliSock.send(bytes("[%s] %s" % (ctime(), data.decode()), "utf-8"))
         except (ConnectionAbortedError, ConnectionResetError) as e:
             break
-    tcpCliSock.close()
+
 tcpSerSock.close()
